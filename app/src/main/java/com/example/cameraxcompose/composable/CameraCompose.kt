@@ -52,7 +52,7 @@ fun CameraCompose(
     Column(modifier = Modifier.fillMaxSize()) {
         if (hasCamPermission) {
             AndroidView(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier.fillMaxSize(),
                 factory = { cameraX.startCameraPreviewView() }
             )
         }
