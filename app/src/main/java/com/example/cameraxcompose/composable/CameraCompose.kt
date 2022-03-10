@@ -3,7 +3,6 @@ package com.example.cameraxcompose.composable
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
@@ -37,8 +36,7 @@ fun CameraCompose(
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions(),
         onResult = { granted ->
-            hasCamPermission =
-                if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) granted.size == 2 else granted.size == 1
+            hasCamPermission =granted.size == 2
         }
     )
     LaunchedEffect(key1 = true) {
